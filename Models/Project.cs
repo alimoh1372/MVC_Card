@@ -12,14 +12,15 @@ namespace MVC_Card.Models
         public string Image { get; set; }
         public string Description { get; set; }
         public string Customer { get; set; }
-
-        public Project(int id, string name, string image, string description, string customer)
+        public string Link { get; set; }
+        public Project(int id, string name, string image, string description, string customer,string link)
         {
             Id = id;
             Name = name;
             Image = image;
             Description = description;
             Customer = customer;
+            Link = link;
         }
     }
 

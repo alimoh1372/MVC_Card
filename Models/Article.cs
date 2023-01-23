@@ -10,7 +10,17 @@ namespace MVC_Card.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public  string Image { get; set; }
-        public string Text { get; set; }
-    }
+        public string Context { get; set; }
+        public string Link { get; set; }
 
+        public Article(int id, string title, string image, string context, string link)
+        {
+            Id = id;
+            Title = title;
+            Image = image;
+            Context = context;
+            Link = link;
+        }
+    }
+    
 }
