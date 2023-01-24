@@ -1,0 +1,23 @@
+﻿<footer class="footer text-center py-4">
+    <small id="copyright" class="copyright">
+        تولید شده توسط <sup>&copy</sup>
+        <a href="#" target="_blank">
+            علی محمدزاده
+        </a>
+    </small>
+</footer>
+
+
+<script>
+    window.onload = function() {
+        let  small = document.getElementById("copyright");
+        console.log(small.outerHTML);
+        let  date = new Date().getFullYear();
+        console.log(date);
+        let superText = document.createElement('sup');
+        let textNode = document.createTextNode("  "+date.toString());
+        superText.appendChild(textNode);
+        console.log(superText);
+        small.appendChild(superText);
+        };
+</script>
