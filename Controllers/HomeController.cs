@@ -11,6 +11,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace MVC_Card.Controllers
 {
+    //attribute route using the complete with action variable
+
+    //[Route("/Myhome/products/{action}")]
+    //https://localhost:44374/myHome/products/index //example
+
+    //attribute rout using just to controller and be continued in action terms
+    [Route("/this/homeCont/")]
+    //https://localhost:44374/this/homeCont 
     public class HomeController : Controller
     {
         private readonly List<Service> _services = new List<Service>
@@ -20,11 +28,18 @@ namespace MVC_Card.Controllers
             new Service(3, "پلاتینیوم"),
             new Service(4, "الماس")
         };
+
+        //use the special route to per action
+        [Route("myaction/theIndex")]
+        //https://localhost:44374/this/homeCont/myaction/theIndex //example segment
         public IActionResult Index()
         {
             return View();
         }
-        [HttpGet]
+        //another mode to define the special route to per action
+        [HttpGet("thisAction/ContactPage")]
+
+        //https://localhost:44374/this/homeCont/thisAction/ContactPage //example segment
         public IActionResult Contact()
         {
             Contact contact = new Contact();

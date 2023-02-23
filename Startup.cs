@@ -23,6 +23,7 @@ namespace MVC_Card
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //for using the views.cshtml and routing to that views with controller and actions
             services.AddControllersWithViews();
         }
 
@@ -41,10 +42,29 @@ namespace MVC_Card
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            //To use routing in the program
             app.UseRouting();
 
             app.UseAuthorization();
+
+            #region Routing_TemplateRoutingOrConventionBaseRoute
+            // 2 example of routing
+            
+            //app.UseEndpoints(endpointmiddleware =>
+            //{
+            //    endpointmiddleware.MapControllerRoute(
+            //        "controllerActionProduct",
+            //        "{controller=Home}/{action=contact}/{product?}");
+            //});
+
+            // app.UseEndpoints(myTemplateRout =>
+            //{
+            //    myTemplateRout.MapControllerRoute(
+            //        "myRout",
+            //        "{action},{controller}.{id?}"
+            //    );
+            //}); 
+
 
             app.UseEndpoints(endpoints =>
             {
@@ -52,6 +72,10 @@ namespace MVC_Card
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            #endregion
+
+
         }
     }
 }

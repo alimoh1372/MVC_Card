@@ -44,18 +44,19 @@ namespace MVC_Card.Controllers
         //}
 
 
-        //    public JsonResult Index()
-        //    {
-        //        var obj = new
-        //        {
-        //            id = 1,
-        //            Name = "ali",
-        //            lastName = "mohammadzade",
-        //            age = 23
-        //        };
-        //        return Json(obj);
-        //    }
-        //}
+        public JsonResult Index()
+        {
+            var obj = new
+            {
+                id = 1,
+                Name = "ali",
+                lastName = "mohammadzade",
+                age = 23
+            };
+            return Json(obj);
+        }
+        
+
         //public JavascriptResult Index()
         //{
         //    return new  JavascriptResult("alert('ali mohammadzadeh');");
@@ -71,16 +72,16 @@ namespace MVC_Card.Controllers
         //}
 
 
-        public StatusCodeResult Index()
-        {
-            //return new OkResult();
-            //return new UnauthorizedResult();
+        //public StatusCodeResult Index()
+        //{
+        //    //return new OkResult();
+        //    //return new UnauthorizedResult();
 
-            //return new BadRequestResult();
-            return new StatusCodeResult(200);
-        }
+        //    //return new BadRequestResult();
+        //    return new StatusCodeResult(200);
+        //}
 
-         
+
     }
 
     //public class JavascriptResult : ContentResult
