@@ -17,8 +17,8 @@ namespace MVC_Card.Controllers
     //https://localhost:44374/myHome/products/index //example
 
     //attribute rout using just to controller and be continued in action terms
-    [Route("/this/homeCont/")]
-    //https://localhost:44374/this/homeCont 
+    //[Route("this/homeCont/")]
+    ////https://localhost:44374/this/homeCont 
     public class HomeController : Controller
     {
         private readonly List<Service> _services = new List<Service>
@@ -29,17 +29,24 @@ namespace MVC_Card.Controllers
             new Service(4, "الماس")
         };
 
-        //use the special route to per action
-        [Route("myaction/theIndex")]
-        //https://localhost:44374/this/homeCont/myaction/theIndex //example segment
-        public IActionResult Index()
+        ////use the special route to per action
+        //[Route("myaction/theIndex")]
+        ////https://localhost:44374/this/homeCont/myaction/theIndex //example segment
+
+        ////define parameters in domain segment
+        ////example: https://localhost:44374/this/homeCont/productDetail/1
+        //[Route("productDetail/{id?}")]
+        public IActionResult Index(int id)
         {
+            var Id = id;
             return View();
         }
         //another mode to define the special route to per action
-        [HttpGet("thisAction/ContactPage")]
+        //[HttpGet("thisAction/ContactPage")]
 
         //https://localhost:44374/this/homeCont/thisAction/ContactPage //example segment
+
+        [HttpGet]
         public IActionResult Contact()
         {
             Contact contact = new Contact();
@@ -81,6 +88,12 @@ namespace MVC_Card.Controllers
             ViewBag.success = "پیغام شما با موفقیت ارسال گردید.در صورت نیاز با شما تماس گرفته خواهد شد";
             return View(model);
 
+        }
+        [HttpGet]
+        public IActionResult ProjectDetails(int id)
+        {
+            Project _project = Project.GetProjectBy(id);
+            return View(_project);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,0 +1,38 @@
+﻿@model Project
+@{
+    ViewData["Title"] = "جزئیات پروژه";
+}
+
+<section class="featured-section p-3 p-lg-5">
+    <div class="container">
+        <h2 class="section-title font-weight-bold mb-5">@Model.Name</h2>
+        <div class="row">
+            <div class="col-md-6 mb-5">
+                <div class="card project-card">
+                    <div class="no-gutters row">
+                        <div >
+                            <img src="~/assets/images/project/@Model.Image" class="card-img" alt="@Model.Name" title="@Model.Description">
+                        </div>
+                        <div >
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="@Model.Link" class="theme-link">
+                                        @Model.Name
+                                    </a>
+                                </h5>
+                                <p class="card-text">
+                                    @Model.Description
+                                </p>
+                                <p class="card-text"><small class="text-muted">مشتری: @Model.Customer</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a asp-controller="Home" asp-action="Index" 
+           style="border: 1px solid black;border-radius: 5px;padding: 5px;background-color: aliceblue;
+                  text-decoration: none;" class="btn-link btn-outline-dark font-weight-bold mb-5">صفحه ی اصلی</a>
+    </div>
+</section>
+
